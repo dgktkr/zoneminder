@@ -1023,12 +1023,12 @@ bool Monitor::connect() {
         Amcrest_Manager = new AmcrestAPI(this);
       } else { //using GSOAP
 #ifdef WITH_GSOAP
-        tev__PullMessages.Timeout = "PT600S";
+        tev__PullMessages.Timeout = "PT6S";
         tev__PullMessages.MessageLimit = 100;
         soap = soap_new();
-        soap->connect_timeout = 5;
-        soap->recv_timeout = 5;
-        soap->send_timeout = 5;
+        soap->connect_timeout = 7;
+        soap->recv_timeout = 7;
+        soap->send_timeout = 7;
         soap_register_plugin(soap, soap_wsse);
         proxyEvent = PullPointSubscriptionBindingProxy(soap);
         if (!onvif_url.empty()) {
